@@ -1,0 +1,9 @@
+.git
+.github
+docs
+k8s
+kind
+scripts
+*.md
+.env
+__pycache__
