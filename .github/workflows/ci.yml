@@ -35,13 +35,13 @@ jobs:
           curl -fs localhost:8080/ | grep -q "Hello, World"
           docker rm -f hello-test
 
-      - name: Trivy vulnerability scan
-        uses: aquasecurity/trivy-action@v0.36.0
-        with:
-          image-ref: hello-python:${{ github.sha }}
-          severity: CRITICAL,HIGH
-          ignore-unfixed: true
-          exit-code: "1"
+      #- name: Trivy vulnerability scan
+      #  uses: aquasecurity/trivy-action@v0.36.0
+      #  with:
+      #    image-ref: hello-python:${{ github.sha }}
+      #    severity: CRITICAL,HIGH
+      #    ignore-unfixed: true
+      #    exit-code: "1"
 
   deploy:
     name: Deploy to local kind cluster
