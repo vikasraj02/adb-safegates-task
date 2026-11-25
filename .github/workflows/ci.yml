@@ -30,10 +30,10 @@ jobs:
 
       - name: Smoke test
         run: |
-          docker run -d --name t -p 8080:8080 hello-python:${{ github.sha }}
+          docker run -d --name hello-test -p 8080:8080 hello-python:${{ github.sha }}
           for i in $(seq 1 10); do curl -fs localhost:8080/healthz && break || sleep 1; done
           curl -fs localhost:8080/ | grep -q "Hello, World"
-          docker rm -f t
+          docker rm -f hello-test
 
       - name: Trivy vulnerability scan
         uses: aquasecurity/trivy-action@v0.36.0
